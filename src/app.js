@@ -8,6 +8,7 @@ const postsRouter = require('./posts/posts-router');
 const repliesRouter = require('./replies/replies-router');
 const knex = require('knex')
 
+console.log(process.env.DB_URL)
 const db = knex({
   client: 'pg',
   connection: process.env.DB_URL,
@@ -19,8 +20,7 @@ app.set('db', db)
 const morganSetting = (NODE_ENV === 'production' ? 'tiny' : 'common');
 app.use(morgan(morganSetting));
 app.use(helmet());
-app.use(cors());
-
+app.use(cors('Access-Control-Allow-Origin: https://ancient-chamber-86595.herokuapp.com/'));
 app.get('/', (req, res) => {
   res.send('Hello, world!');
 })
