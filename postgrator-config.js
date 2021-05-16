@@ -1,5 +1,5 @@
 // require('dotenv').config();
-
+console.log('123', process.env.DATABASE_URL)
 module.exports = {
   "migrationDirectory": "migrations",
   "driver": "pg",
@@ -12,4 +12,5 @@ module.exports = {
 Issue: after running heroku run npm run migrate I am still being
 prompting for password despite logging process.env.url
 and having password in heroku URI
+can't echo env variables
 */
