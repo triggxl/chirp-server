@@ -28,7 +28,7 @@ app.set('db', db)
 const morganSetting = (NODE_ENV === 'production' ? 'tiny' : 'common');
 app.use(morgan(morganSetting));
 app.use(helmet());
-app.use(cors('Access-Control-Allow-Origin: https://ancient-chamber-86595.herokuapp.com/'));
+app.use(cors('Access-Control-Allow-Origin: https://git.heroku.com/stormy-hollows-73700.git'));
 app.get('/', (req, res) => {
   res.send('Hello, world!');
 })
