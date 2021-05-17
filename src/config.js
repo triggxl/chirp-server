@@ -5,4 +5,14 @@ module.exports = {
   TEST_DATABASE_URL: process.env.DATABASE_URL || 'postgresql://Triggxl@localhost:8002/chirp-app/test',
 }
 
-// having trouble connecting db to heroku
+/*
+make knexfile
+make new migration
+npm i knex pg
+fill in values for knexfile
+change scripts create-migrate
+Junior Dev...server, front-end, full-stack on a team security is more about the industry you're in
+attended Thinkful from date to date
+looking at projects and portfolio
+do _ job applications a day || week
+*/

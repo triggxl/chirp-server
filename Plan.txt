@@ -1,0 +1,1 @@
+general rule on where to place console.log statements

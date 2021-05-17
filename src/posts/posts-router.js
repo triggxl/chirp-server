@@ -42,8 +42,6 @@ postsRouter
       })
       .catch(next)
   })
-// 4/19 error: adding new header after sending response
-// try recreating your post handler in this file || move on to building out other fetch calls
 
 postsRouter
   .route('/:post_id')

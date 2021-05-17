@@ -8,7 +8,6 @@ const postsRouter = require('./posts/posts-router');
 const repliesRouter = require('./replies/replies-router');
 const knex = require('knex')
 
-
 /*
 create db on heroku for server knows its using that db
 heroku pg:sql
@@ -16,7 +15,7 @@ check for data
 run migrations
 seeding files
 */
-console.log(process.env.DATABASE_URL)
+
 const db = knex({
   client: 'pg',
   connection: process.env.DATABASE_URL,

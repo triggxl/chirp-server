@@ -124,7 +124,6 @@ describe('Replies Endpoints', function () {
         id: 'Test new reply id...',
         title: 'Test new reply',
       }
-      // process.on('uncaughtException', unhandledExceptionCallback);
       return supertest(app)
         .post('/api/replies')
         .send(newReply)

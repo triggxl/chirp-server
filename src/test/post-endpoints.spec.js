@@ -125,7 +125,6 @@ describe('Posts Endpoints', function () {
         title: 'Test new post',
         content: 'Test new post content'
       }
-      // process.on('uncaughtException', unhandledExceptionCallback);
       return supertest(app)
         .post('/api/post')
         .send(post)
