@@ -1,1 +1,36 @@
-general rule on where to place console.log statements
+/*
+knexfile.js:
+(indented = complete)
+  copy knexfile
+  copy scripts
+  drop database on heroku
+  heroku config:set PGSSLMODE=no-verify
+  create migration
+    npx knex migrate:make chirp_app
+  commit
+  push up to heroku
+  run migrations on heroku
+  seed files:
+    heroku pg:psql -f <file-name>
+  check server logs
+    heroku logs
+
+heroku db env variable
+
+General:
+
+console.log's
+right before the problem || before an object or a map
+application:interview ex: 1:100
+
+500 error
+check server logs: heroku logs
+
+Issues:
+Error: Unable to acquire a connection
+Ref: Using knex with dotenv
+https://github.com/knex/knex/issues/590
+
+I want to find the commit before the 500/Unable to acquire a connection
+https://code.likeagirl.io/how-to-undo-the-last-commit-393e7db2840b
+*/
