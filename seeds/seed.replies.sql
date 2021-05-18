@@ -1,5 +1,5 @@
 INSERT INTO replies
-  (id, content, postid)
+  (id, title, postid)
 VALUES
   ('ddd', 'Ice, Ice baby...!', 'aaa'),
   ('eee', 'Tell me what else you see in the clouds...', 'bbb');
