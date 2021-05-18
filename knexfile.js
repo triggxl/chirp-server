@@ -13,7 +13,16 @@ module.exports = {
   heroku config:set PGSSLMODE=no-verify
   create migration
     npx knex migrate:make chirp_app
-
+commit
+push up to heroku
+run migrations on heroku
 
 heroku db env variable
+
+console.log's
+right before the problem || before an object or a map
+application:interview 1:100
+
+500 error
+check logs: heroku logs
 */
