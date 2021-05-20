@@ -45,11 +45,23 @@ ran
   npm run migrate
   npm run seed
 
-db isn't letting your app communicate with it
-pg_hba.conf controls who can access your database
+ran into error:
+  "error: no pg_hba.conf entry for host "174.101.64.109", user "hxelpdjqtbrsap", database "d32044le9gel4q", SSL off..."
+  --> db isn't letting your app communicate with it
 
+file def: pg_hba.conf controls who can access your database
 
-restart postgre
+modified postgresql.conf
+  (location = '*')
+  https://dba.stackexchange.com/questions/83984/connect-to-postgresql-server-fatal-no-pg-hba-conf-entry-for-host
+restarted postgre
   pg_ctl restart
+still receiving error
+pulled up pg_hba.conf.sample...? to modify
 
+A: DATABASE_URL was set to heroku url when it needed to be set to local host
+
+
+5/19
+[x]having issue with data not persisting upon reload
 */

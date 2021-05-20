@@ -9,7 +9,7 @@ const jsonParser = express.json()
 // making 'safe' version of reply from db
 const serializeReply = reply => ({
   id: reply.id,
-  content: xss(reply.content),
+  title: xss(reply.title),
   postId: reply.postid
 })
 
@@ -92,13 +92,3 @@ repliesRouter
 
 
 module.exports = repliesRouter;
-
-/*
-router:
-.route
-.httpVerb
-  req.body
-  CRUD method variable using req.body (ex: get)
-.then(error checking)
-.then(res.status.json..)
- */

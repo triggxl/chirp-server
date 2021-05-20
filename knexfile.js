@@ -6,5 +6,3 @@ module.exports = {
   connection: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false }
 };
-
-// server can't connect to DB via knex

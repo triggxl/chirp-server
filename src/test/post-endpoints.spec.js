@@ -167,8 +167,6 @@ describe('Posts Endpoints', function () {
     it('removes XSS attack id from response', () => {
 
       const { maliciousPost, expectedPost } = makeMaliciousPost()
-      // process.on('uncaughtException', unhandledExceptionCallback);
-      // https://stackoverflow.com/questions/34699457/how-do-i-get-the-actual-server-error-when-running-supertest-in-mocha
       return supertest(app)
         .post(`/api/post`)
         .send(maliciousPost)
