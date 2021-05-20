@@ -25,9 +25,9 @@ repliesRouter
   })
   .post(jsonParser, (req, res, next) => {
     // what our client gave us
-    const { content, postId, id } = req.body
+    const { title, postId, id } = req.body
     // destructuring and creating new object with new keys server: client
-    const reply = { content, postid: postId, id }
+    const reply = { title, postid: postId, id }
 
     for (const [key, value] of Object.entries(reply)) {
       if (value == null) {
@@ -54,9 +54,9 @@ repliesRouter
 repliesRouter
   .route('/:reply_id')
   .put(jsonParser, (req, res, next) => {
-    const { content, postid, id } = req.body;
+    const { title, postid, id } = req.body;
     // destructuring and creating new object with new keys server: client
-    const reply = { content, postid, id };
+    const reply = { title, postid, id };
 
     for (const [key, value] of Object.entries(reply)) {
       if (value == null) {
@@ -65,7 +65,7 @@ repliesRouter
         })
       }
     }
-    RepliesService.updateReplies(req.app.get('db'), id, content, postid)
+    RepliesService.updateReplies(req.app.get('db'), id, title, postid)
       .then(reply => {
         res
           .json(serializeReply(reply))

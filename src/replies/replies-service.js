@@ -22,10 +22,10 @@ const RepliesService = {
       .first()
   },
 
-  updateReplies(knex, id, content, postid) {
+  updateReplies(knex, id, title, postid) {
     return knex('replies')
       .where({ id, postid })
-      .update({ content })
+      .update({ title })
   },
 
   deleteReplies(knex, id) {

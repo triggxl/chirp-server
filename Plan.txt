@@ -35,11 +35,21 @@ Unable to find the commit before the 500/Unable to acquire a connection errors
 https://code.likeagirl.io/how-to-undo-the-last-commit-393e7db2840b
 
 Dropped and created the database
-  (however no tables are showing)
 
-•Knex file is in the root so dotenv file shouldn't need to pass a path to it
-•tried importing dotenv
+•Knex file is in the root so dotenv file shouldn't need to pass a path to it..?
+•tried importing dotenv into config.js
   import dotenv from 'dotenv';
   dotenv.config();
-  
+
+ran 
+  npm run migrate
+  npm run seed
+
+db isn't letting your app communicate with it
+pg_hba.conf controls who can access your database
+
+
+restart postgre
+  pg_ctl restart
+
 */

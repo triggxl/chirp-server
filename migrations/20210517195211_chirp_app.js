@@ -12,6 +12,8 @@ exports.up = function (knex) {
     })]
   )
 };
+// alter statement ref knex documentation
+// only specify differences
 
 exports.down = function (knex) {
   knex.schem.dropTable('posts')
