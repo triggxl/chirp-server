@@ -2,12 +2,12 @@ exports.up = function (knex) {
   return Promise.all(
     [knex.schema.createTable('posts', table => {
       table.string('id', 36)
-      table.string('title', 50)
+      table.string('title', 70)
       table.string('content')
     }),
     knex.schema.createTable('replies', table => {
       table.string('id', 36)
-      table.string('title', 50)
+      table.string('title')
       table.string('postid', 36)
     })]
   )
