@@ -54,7 +54,7 @@ file def: pg_hba.conf controls who can access your database
 modified postgresql.conf
   (location = '*')
   https://dba.stackexchange.com/questions/83984/connect-to-postgresql-server-fatal-no-pg-hba-conf-entry-for-host
-restarted postgre
+restarted postgres
   pg_ctl restart
 still receiving error
 pulled up pg_hba.conf.sample...? to modify
@@ -69,20 +69,88 @@ A: DATABASE_URL was set to heroku url when it needed to be set to local host
 5/20
 
 []push to heroku
-
+----------------------------------------------------------
 commands:
-
 knex seed:make seeds/seed.post.sql
 cd /usr/local/var/postgres/
 code . pg_hba.conf
 psql -U postgres -c 'SHOW config_file'
 cp .env.local .env
+ls /usr/local/var/postgres
+----------------------------------------------------------
 
 5/21
 
 Error:
 knex seed:make seeds/seed.post.sql2021-05-21 06:27:09.020 EDT [30932] LOG:  stats_timestamp 2021-05-21 10:27:09.151972+00 is later than collector's time 2021-05-21 10:27:09.020801+00 for database 0
 
-5/22
+5/24
 
-[]client is not sending postid in post body
+! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://git.heroku.com/stormy-hollows-73700.git' 
+after changing pg to version ^7 in package.json
+
+heroku run npm run migrate:
+
+Error: self signed certificate
+    at TLSSocket.onConnectSecure (_tls_wrap.js:1507:34)
+    at TLSSocket.emit (events.js:376:20)
+    at TLSSocket._finishInit (_tls_wrap.js:932:8)
+    at TLSWrap.ssl.onhandshakedone (_tls_wrap.js:706:12)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! express-boilerplate@1.0.0 migrate: `knex migrate:latest`
+npm ERR! Exit status 1...
+
+2.)
+heroku config:set PGSSLMODE=no-verify
+
+Setting PGSSLMODE and restarting ⬢ stormy-hollows-73700... done, v20
+PGSSLMODE: no-verify
+Kriss-MacBook-Pro:chirp-server Triggxl$ 
+Kriss-MacBook-Pro:chirp-server Triggxl$ 
+Kriss-MacBook-Pro:chirp-server Triggxl$ heroku run npm run migrate
+Running npm run migrate on ⬢ stormy-hollows-73700... up, run.2943 (Free)
+
+> express-boilerplate@1.0.0 migrate /app
+> knex migrate:latest
+
+Already up to date
+
+3.) heroku run npm run seed
+Running npm run seed on ⬢ stormy-hollows-73700... up, run.6816 (Free)
+
+> express-boilerplate@1.0.0 seed /app
+> psql -d chirp-app -f seeds/seed.posts.sql; psql -d chirp-app -f seeds/seed.replies.sql
+
+psql: error: invalid sslmode value: "no-verify"
+psql: error: invalid sslmode value: "no-verify"
+npm ERR! code ELIFECYCLE
+npm ERR! errno 2
+npm ERR! express-boilerplate@1.0.0 seed: `psql -d chirp-app -f seeds/seed.posts.sql; psql -d chirp-app -f seeds/seed.replies.sql`
+npm ERR! Exit status 2
+npm ERR! 
+npm ERR! Failed at the express-boilerplate@1.0.0 seed script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /app/.npm/_logs/2021-05-25T01_43_43_563Z-debug.log
+
+5/25
+
+[]why do replies in first post have edit and delete buttons?
+[]width and max-width for replies section not working
+
+npm rm pg
+npm i pg@7.12.
+
+To remove extra posts:
+[]reset heroku database
+heroku pg:reset
+https://stackoverflow.com/questions/4820549/how-to-empty-a-heroku-database
+
+To seed db on heroku
+used 'postgre's way' of seeding a database vs. heroku's
+ref: seed:live (package.json)
+
+
