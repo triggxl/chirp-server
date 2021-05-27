@@ -1,5 +1,5 @@
 {
-  "name": "express-boilerplate",
+  "name": "chirp-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "migrate:test": "env NODE_ENV=test npm run migrate",
     "seed": "psql -d chirp-app -f seeds/seed.posts.sql; psql -d chirp-app -f seeds/seed.replies.sql",
     "seed:live": "heroku pg:psql -f seeds/seed.posts.sql; heroku pg:psql -f seeds/seed.replies.sql",
-    "test": "mocha --require test/setup.js",
+    "test": "mocha --require app.spec.js",
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
     "predeploy": "npm audit",
@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^8.2.1",
+    "mocha": "^8.4.0",
     "nodemon": "^2.0.7",
     "supertest": "^6.0.1"
   }
